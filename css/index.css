@@ -1,0 +1,295 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Righteous);
+
+
+body {
+    font: 12px/1.6 arial;
+    color: #fff;
+}
+
+.wave {
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    height: 300px;
+}
+
+.wave span {
+    position: absolute;
+    top: 10%;
+    left: 3%;
+    font-size: 24px;
+    animation: loading 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
+}
+
+@keyframes loading {
+    0% {
+        top: 10%
+    }
+    100% {
+        top: 20%
+    }
+}
+
+.wave span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.wave span:nth-child(2) {
+    left: 4%;
+    animation-delay: 0.1s;
+}
+
+.wave span:nth-child(3) {
+    left: 5%;
+    animation-delay: 0.2s;
+}
+
+.wave span:nth-child(4) {
+    left: 6%;
+    animation-delay: 0.3s;
+}
+
+.wave span:nth-child(5) {
+    left: 7%;
+    animation-delay: 0.4s;
+}
+
+.wave span:nth-child(6) {
+    left: 8%;
+    animation-delay: 0.5s;
+}
+
+.wave span:nth-child(7) {
+    left: 9%;
+    animation-delay: 0.6s;
+}
+
+.wave span:nth-child(8) {
+    left: 10%;
+    animation-delay: 0.7s;
+}
+
+.wave span:nth-child(9) {
+    left: 11%;
+    animation-delay: 0.8s;
+}
+
+.wave span:nth-child(10) {
+    left: 12%;
+    animation-delay: 0.9s;
+}
+
+.wave span:nth-child(11) {
+    left: 13%;
+    animation-delay: 1s;
+}
+
+.open {
+    position: fixed;
+    top: 30px;
+    right: 50px;
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #000;
+    cursor: pointer;
+}
+
+.open .bar {
+    height: 4px;
+    background-color: #fff;
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.5s
+}
+
+.open .bar1 {
+    width: 15px;
+    top: 12px;
+    left: 10px
+}
+
+.open .bar2 {
+    width: 30px;
+    top: 50%;
+    margin-top: -2px;
+    left: 10px
+}
+
+.open .bar3 {
+    width: 20px;
+    bottom: 12px;
+    right: 20px;
+}
+
+.open.on .bar1 {
+    transform: translateX(4px) rotate(45deg);
+    transform-origin: left center;
+}
+
+.open.on .bar2 {
+    transform: rotate(-45deg);
+    transform-origin: center;
+}
+
+.open.on .bar3 {
+    transform: translateX(6px) rotate(45deg);
+    transform-origin: right center;
+    width: 15px;
+}
+
+.openlist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0%;
+    overflow: hidden;
+    height: 100%;
+    background-color: #b08978;
+    z-index: 998;
+    transition: all 0.5s;
+}
+
+.open.on+.openlist {
+    width: 100%;
+}
+
+.openlist ul {
+    color: #ddd;
+    opacity: 0;
+    text-align: center;
+    font-size: 50px;
+    line-height: 2;
+    transition: all 0.5s;
+}
+
+.open.on+.openlist ul {
+    opacity: 1;
+}
+
+#menu {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50px;
+    z-index: 99
+}
+
+#menu li {
+    margin: 20px 0;
+}
+
+#menu li a {
+    display: block;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #555;
+    position: relative;
+    transition: all 0.5s;
+}
+
+#menu li.on a {
+    background-color: #fff;
+    transform: scale(1.5)
+}
+
+#menu li a span {
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    width: 100px;
+    font-size: 17px;
+    color: #555;
+    display: none;
+}
+
+#menu li.on a span {
+    display: block
+}
+
+#sns {
+    position: fixed;
+    top: 40px;
+    right: 150px;
+    z-index: 99
+}
+
+#sns li {
+    display: inline-block;
+    font-size: 25px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: 15px;
+    transition: all 0.5s
+}
+
+#sns li:hover {
+    transform: scale(1.5);
+    color: rgba(0, 0, 0, 1)
+}
+
+
+/* 걷는 애니메이션 */
+.walkBox {
+    position: fixed;
+    bottom: 30px;
+    left: 130px;
+    z-index: 99;
+}
+
+.walkBox .humanBg {
+    background: url(../img/flying-bird2.png) no-repeat;
+    width: 340px;
+    height: 501px;
+    background-position: 0 0;
+}
+
+.walkBox.on .humanBg {
+    animation: move 0.6s steps(6);
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -2041px 0;
+    }
+}
+
+html {
+    overflow: hidden
+}
+
+body {
+    background-image: url(../img/Cloudscape1.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    transition: all 1s;
+}
+
+body.on {
+    background-image: url(../img/Cloudscape2.png);
+}
+
+body.onn {
+    background-image: url(../img/Cloudscape3.png);
+}
+
+#wrap {
+    display: flex;
+    width: 300vw;
+    height: 100vh
+}
+
+section {
+    flex: 1;
+}
